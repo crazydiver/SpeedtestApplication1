@@ -15,6 +15,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.textfield.TextInputEditText
 import ru.scoltech.openran.speedtest.R
 
@@ -32,8 +33,8 @@ class SetupPipelineTab : Fragment() {
     }
 
     private fun getPipleineCount() = run {
-            requireActivity().getSharedPreferences("pipeline_count",
-                AppCompatActivity.MODE_PRIVATE).getString("0", "0")
+        requireActivity().getSharedPreferences("pipeline_count",
+            AppCompatActivity.MODE_PRIVATE).getString("0", "0")
             .toString().toInt()
     }
 
@@ -45,7 +46,7 @@ class SetupPipelineTab : Fragment() {
         return "$name\n$device\n$server"
     }
 
-    private fun editCallback(name : Int, parent : ViewGroup, pipelineForm : View){
+    private fun editNewCallback(name : Int, parent : ViewGroup, pipelineForm : View){
         val pipelineCount = getPipleineCount()
         parent.getChildAt(pipelineCount).findViewById<EditText>(name)
             .addTextChangedListener(object : TextWatcher {
@@ -63,6 +64,24 @@ class SetupPipelineTab : Fragment() {
                     }
                 }
             })
+    }
+
+    private fun editBasicCallback(view : View, activity : FragmentActivity){
+        val iperfUploadServText = view.findViewById<EditText>(R.id.upload_server_args)
+        iperfUploadServText.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                val editor = activity.getSharedPreferences(
+                    getString(R.string.iperfSharedPreferences),
+                    AppCompatActivity.MODE_PRIVATE
+                ).edit()
+                editor.putString(getString(R.string.upload_server_args), s.toString())
+                editor.apply()
+                Log.d(TAG, "update UploadServerArgs = $s")
+            }
+        })
     }
 
     private fun addChild2List(){
@@ -114,16 +133,16 @@ class SetupPipelineTab : Fragment() {
         view.findViewById<EditText>(R.id.upload_device_args)
             .addTextChangedListener(object : TextWatcher {
 
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                requireActivity().getSharedPreferences(
-                    getString(R.string.iperfSharedPreferences),
-                    AppCompatActivity.MODE_PRIVATE
-                ).edit{ putString(getString(R.string.upload_device_args), s.toString()) }
-                Log.d(TAG, "update UploadDeviceArgs = $s")
-            }
-        })
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    requireActivity().getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit{ putString(getString(R.string.upload_device_args), s.toString()) }
+                    Log.d(TAG, "update UploadDeviceArgs = $s")
+                }
+            })
 
         val iperfUploadServText = view.findViewById<EditText>(R.id.upload_server_args)
         iperfUploadServText.setText(UPLOAD_SERVER_IPERF_ARGS)
@@ -176,6 +195,109 @@ class SetupPipelineTab : Fragment() {
             }
         })
 
+    val iperfName1DevText = view.findViewById<EditText>(R.id.n1_device_args)
+        iperfName1DevText.setText(DOWNLOAD_SERVER_IPERF_ARGS)
+        iperfName1DevText.addTextChangedListener(object : TextWatcher {
+
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    val editor = activity.getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit()
+                    editor.putString(getString(R.string.download_server_args), s.toString())
+                    editor.apply()
+                    Log.d(TAG, "update DownloadServerArgs = $s")
+                }
+            })
+    val iperfName1ServText = view.findViewById<EditText>(R.id.n1_server_args)
+        iperfName1ServText.setText(DOWNLOAD_SERVER_IPERF_ARGS)
+        iperfName1ServText.addTextChangedListener(object : TextWatcher {
+
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    val editor = activity.getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit()
+                    editor.putString(getString(R.string.download_server_args), s.toString())
+                    editor.apply()
+                    Log.d(TAG, "update DownloadServerArgs = $s")
+                }
+            })
+
+    val iperfName2DevText = view.findViewById<EditText>(R.id.n2_device_args)
+        iperfName2DevText.setText(DOWNLOAD_SERVER_IPERF_ARGS)
+        iperfName2DevText.addTextChangedListener(object : TextWatcher {
+
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    val editor = activity.getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit()
+                    editor.putString(getString(R.string.download_server_args), s.toString())
+                    editor.apply()
+                    Log.d(TAG, "update DownloadServerArgs = $s")
+                }
+            })
+
+        val iperfName2ServText = view.findViewById<EditText>(R.id.n2_server_args)
+        iperfName2ServText.setText(DOWNLOAD_SERVER_IPERF_ARGS)
+        iperfName2ServText.addTextChangedListener(object : TextWatcher {
+
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    val editor = activity.getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit()
+                    editor.putString(getString(R.string.download_server_args), s.toString())
+                    editor.apply()
+                    Log.d(TAG, "update DownloadServerArgs = $s")
+                }
+            })
+
+    val iperfName3DevText = view.findViewById<EditText>(R.id.n3_device_args)
+        iperfName3DevText.setText(DOWNLOAD_SERVER_IPERF_ARGS)
+        iperfName3DevText.addTextChangedListener(object : TextWatcher {
+
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    val editor = activity.getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit()
+                    editor.putString(getString(R.string.download_server_args), s.toString())
+                    editor.apply()
+                    Log.d(TAG, "update DownloadServerArgs = $s")
+                }
+            })
+
+        val iperfName3ServText = view.findViewById<EditText>(R.id.n3_server_args)
+        iperfName3ServText.setText(DOWNLOAD_SERVER_IPERF_ARGS)
+        iperfName3ServText.addTextChangedListener(object : TextWatcher {
+
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    val editor = activity.getSharedPreferences(
+                        getString(R.string.iperfSharedPreferences),
+                        AppCompatActivity.MODE_PRIVATE
+                    ).edit()
+                    editor.putString(getString(R.string.download_server_args), s.toString())
+                    editor.apply()
+                    Log.d(TAG, "update DownloadServerArgs = $s")
+                }
+            })
+
+        /*
+
         val childCountPreferences = requireActivity().getSharedPreferences("pipeline_count",
             AppCompatActivity.MODE_PRIVATE)
         val childCount = childCountPreferences.getString("0", "0")
@@ -211,9 +333,9 @@ class SetupPipelineTab : Fragment() {
                     .setText(pipelineConfig[2])
 
 
-                editCallback(R.id.pipeline_name, pipelineLayout, pipelineLayout)
-                editCallback(R.id.device_args, pipelineLayout, pipelineLayout)
-                editCallback(R.id.server_args, pipelineLayout, pipelineLayout)
+                editNewCallback(R.id.pipeline_name, pipelineLayout, pipelineLayout)
+                editNewCallback(R.id.device_args, pipelineLayout, pipelineLayout)
+                editNewCallback(R.id.server_args, pipelineLayout, pipelineLayout)
 
 
                 pipelineLayout.getChildAt(index).findViewById<ImageButton>(R.id.deleteButton)
@@ -227,6 +349,7 @@ class SetupPipelineTab : Fragment() {
         }
 
         addPipelineButton.setOnClickListener { newPipeline(pipelineLayout) }
+        */
     }
 
     private fun newPipeline(parent: ViewGroup) {
@@ -235,9 +358,9 @@ class SetupPipelineTab : Fragment() {
 
         addChild2List()
 
-        editCallback(R.id.pipeline_name, parent, pipelineForm)
-        editCallback( R.id.device_args, parent, pipelineForm)
-        editCallback(R.id.server_args, parent, pipelineForm)
+        editNewCallback(R.id.pipeline_name, parent, pipelineForm)
+        editNewCallback( R.id.device_args, parent, pipelineForm)
+        editNewCallback(R.id.server_args, parent, pipelineForm)
 
         requireActivity().getSharedPreferences(
             "iperf_args_pipeline",

@@ -18,6 +18,7 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:text="@string/add_pipeline"
+        android:visibility="invisible"
         />
 
     <LinearLayout
@@ -234,6 +235,359 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/arial_mono_bold"
+
+            android:gravity="center"
+            android:baselineAligned="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Pipeline name"
+            android:paddingLeft="15dp"
+            app:hintEnabled="false" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/n1_iperf_dev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+
+                    android:text="@string/this_device"
+                    android:textAppearance="@style/Headline2"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/n1_device_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:baselineAligned="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/default_download_device_iperf_args"
+                    android:paddingLeft="15dp"
+                    app:hintEnabled="false" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/n1_iperf_server"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="@string/server"
+
+                    android:textAppearance="@style/Headline2"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="@+id/download_iperf_dev"
+                    app:layout_constraintTop_toBottomOf="@+id/download_iperf_dev" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/n1_server_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:baselineAligned="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/default_download_server_iperf_args"
+                    android:paddingLeft="10dp"
+                    app:hintEnabled="false" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/arial_mono_bold"
+
+            android:gravity="center"
+            android:baselineAligned="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Pipeline name"
+            android:paddingLeft="15dp"
+            app:hintEnabled="false" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/n2_iperf_dev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+
+                    android:text="@string/this_device"
+                    android:textAppearance="@style/Headline2"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/n2_device_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:baselineAligned="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/default_download_device_iperf_args"
+                    android:paddingLeft="15dp"
+                    app:hintEnabled="false" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/n2_iperf_server"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="@string/server"
+
+                    android:textAppearance="@style/Headline2"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="@+id/download_iperf_dev"
+                    app:layout_constraintTop_toBottomOf="@+id/download_iperf_dev"
+                     />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/n2_server_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:baselineAligned="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/default_download_server_iperf_args"
+                    android:paddingLeft="10dp"
+                    app:hintEnabled="false" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/arial_mono_bold"
+
+            android:gravity="center"
+            android:baselineAligned="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Pipeline name"
+            android:paddingLeft="15dp"
+            app:hintEnabled="false" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/n3_iperf_dev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp"
+
+                    android:text="@string/this_device"
+                    android:textAppearance="@style/Headline2"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                     />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/n3_device_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:baselineAligned="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/default_download_device_iperf_args"
+                    android:paddingLeft="15dp"
+                    app:hintEnabled="false" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/n3_iperf_server"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="@string/server"
+
+                    android:textAppearance="@style/Headline2"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="@+id/download_iperf_dev"
+                    app:layout_constraintTop_toBottomOf="@+id/download_iperf_dev"
+                     />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/n3_server_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:baselineAligned="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/default_download_server_iperf_args"
+                    android:paddingLeft="10dp"
+                    app:hintEnabled="false" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:id="@+id/new_pipelines"
